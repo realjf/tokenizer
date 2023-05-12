@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/blevesearch/segment"
+	"github.com/rylans/getlang"
 )
 
 func CalcTokens(text string) int {
@@ -21,4 +22,9 @@ func CalcTokens(text string) int {
 		return 0
 	}
 	return len(words)
+}
+
+func WhatLang(s string) string {
+	info := getlang.FromString(s)
+	return info.LanguageCode()
 }
